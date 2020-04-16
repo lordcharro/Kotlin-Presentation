@@ -23,6 +23,11 @@ android {
         }
     }
 
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
 // To inline the bytecode built with JVM target 1.8 into
 // bytecode that is being built with JVM target 1.6. (e.g. navArgs)
 
@@ -35,6 +40,9 @@ android {
         jvmTarget = "1.8"
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion "0.1.0-dev08"
+    }
 }
 
 dependencies {
@@ -51,6 +59,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
     testImplementation 'junit:junit:4.13'
+
+    //compose
+    implementation 'androidx.ui:ui-tooling:0.1.0-dev09'
+    implementation 'androidx.ui:ui-layout:0.1.0-dev09'
+    implementation 'androidx.ui:ui-material:0.1.0-dev09'
+    
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

@@ -1,6 +1,8 @@
 package com.charro.kotlinpresentation.ui.home
 
 import android.content.Context
+import android.content.Intent
+import com.charro.kotlinpresentation.activities.ComposeActivity
 import com.charro.kotlinpresentation.extension.toast
 import com.charro.kotlinpresentation.interfaces.HomeInterface
 import kotlinx.coroutines.Dispatchers
@@ -23,7 +25,8 @@ class HomePresenter(view: HomeInterface2) : HomeInterface {
         // EXAMPLE: Coroutines
         GlobalScope.launch(context = Dispatchers.Main) {
             delay(5000)
-            showToast(context)
+            //showToast(context)
+            goToComposeActivity(context)
         }
 
     }
@@ -31,5 +34,11 @@ class HomePresenter(view: HomeInterface2) : HomeInterface {
     private fun showToast(context: Context) {
         // EXAMPLE: Extension Function and Default parameter (duration)
         context.toast("the button was clicked")
+    }
+
+    private fun goToComposeActivity(context: Context)
+    {
+        val intent = Intent(context, ComposeActivity::class.java)
+        context.startActivity(intent)
     }
 }
