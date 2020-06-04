@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.charro.kotlinpresentation.R
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment(), HomeInterface2 {
+class HomeFragment : Fragment(), HomeInterfaceFromFragment {
 
     private lateinit var homeViewModel: HomeViewModel
     private var presenter: HomePresenter? = null
@@ -43,11 +43,18 @@ class HomeFragment : Fragment(), HomeInterface2 {
         button_click_me.setOnClickListener { context?.let { it -> presenter?.onClickMe(it) } }
     }
 
-    override fun onButtonClickMe() {
+    override fun onButtonClickMe(message: String) {
 
+        text_home.setText(message)
     }
 }
 
-interface HomeInterface2 {
-    fun onButtonClickMe()
+
+
+
+
+
+
+interface HomeInterfaceFromFragment {
+    fun onButtonClickMe(message: String)
 }

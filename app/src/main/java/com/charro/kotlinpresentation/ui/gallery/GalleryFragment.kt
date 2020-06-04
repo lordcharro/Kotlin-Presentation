@@ -44,11 +44,20 @@ class GalleryFragment : Fragment(), GalleryInterface {
                 R.id.radio_2 -> {exampleHigherOrderFunctions({hideImageRadio2()}, "radio2")}
             }
         }
+
+
+
+        var sum = func(10)
+        var totalsum = sum(20) //output 30
     }
 
     override fun changeText(text: String) {
         text_gallery.text = text
     }
+
+
+    // EXAMPLE higher-order functions returning a function
+    fun func(num: Int): (Int) -> Int = {num2 -> num2 + num}
 
     fun exampleHigherOrderFunctions(function: () -> Unit, title: String)
     {
